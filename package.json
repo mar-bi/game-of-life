@@ -1,0 +1,26 @@
+{
+  "name": "game_of_life",
+  "version": "1.0.0",
+  "description": "React JS game",
+  "engines": {
+    "node": "6.11.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Marina Biletska",
+  "license": "ISC",
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "express": "4.15.2"
+  },
+  "keywords": [
+    "react",
+    "game of life"
+    "sass",
+    "node"
+  ]
+}

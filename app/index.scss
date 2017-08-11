@@ -1,0 +1,265 @@
+//variables
+$backgreen: #16c65c;
+$darkgreen: #063b1b;
+$panelwidth: 550px;
+$panelcolor:  #68b9ee;
+$shadowcolor: #666;
+$brown: #7b4f38;
+$livegreen: #49db3e;
+
+//media width
+$mediumscreen: 960px;
+$smallscreen: 580px;
+
+//mixins
+@mixin border($width, $bord-color, $radius:0) {
+	border: {
+		color: $bord-color;
+		width: $width;
+		style: solid;
+	};
+	border-radius: $radius;
+}
+
+//style
+body {
+	font-family: Helvetica, sans-serif;
+	min-height: 940px;
+	background: $backgreen;
+	background: radial-gradient($backgreen, $darkgreen);
+	color: darken($brown, 10%);
+	@media screen and (max-width: $mediumscreen){
+		min-height: 650px;
+	}
+}
+
+h1 {
+	font-size: 2em;
+	color: darken($brown, 20%);
+	text-align: center;
+	margin: 10px 0 5px 0;
+	@media screen and (max-width: $smallscreen){
+		font-size: 1.5em;
+	}
+	a {
+		font-size: 0.85em;
+		font-style: italic;
+		font-weight: 600;
+		color: lighten(#000, 70%);
+		text-decoration: none;
+		&:visited {
+			color: lighten(#000, 70%);
+		}
+	}
+}
+
+h6 {
+	font-size: 0.8em;
+	text-align: center;
+	margin: 5px;
+	color: #fff;
+	a:visited {
+		color: inherit;
+	}
+}
+
+button {
+	padding: 5px;
+	box-shadow: 3px 3px 5px $shadowcolor;
+	background-color: #fff;
+	color: darken($brown, 10%);
+	@include border(1px, #fff, 5px);
+  &:active {
+		box-shadow: 0 5px #666;
+  	transform: translateY(4px);
+  }
+  &:hover {
+  	background-color: lightgreen;
+  	filter: brightness(85%); 
+  }
+}
+
+.top-panel {
+	width: $panelwidth * 1.5;
+	height: 98px;
+	margin: 8px auto;
+	box-shadow: 5px 5px 5px #000;
+	@media screen and (min-width: $smallscreen) and (max-width: $mediumscreen){
+		width: $mediumscreen * .5;
+		height: auto;
+	}
+	@media screen and (max-width: $smallscreen - 1){
+		width: 80%;
+		height: auto;
+	}
+
+	button {
+		width: 20%;
+		font-size: 1.2em;
+		margin: 5px;
+		@media screen and (max-width: $smallscreen){
+			width: 25%;
+			font-size: 1em; 	
+		}
+	}
+	span{ 
+		margin-left: 8px;
+		font-size: 1.1em;
+		@media screen and (max-width: $smallscreen){
+			font-size: 1.1em;
+			margin-left: 10px;	
+		}
+	}
+	h3 {
+		font-size: 1.1em;
+		margin: 3px 0;
+		text-align: center;
+		color: $brown;
+		font-style: italic;
+	}
+}
+
+table, tr, td {
+    border: 1px solid #fff;
+    border-collapse: collapse;
+}
+
+.prob-row {
+	width: 41%;
+	float: left;
+	background: lighten($backgreen, 40%);
+	padding: 10px 5px;
+	@include border(1px, #fff);
+	@media screen and (max-width: $mediumscreen){
+		float: none;
+		width: auto;
+	}
+	label {
+		font-size: 1em;
+		line-height: 1;
+		@media screen and (max-width: $mediumscreen){
+			margin-left: 10px;
+		}
+	}
+	input {
+		margin: 0 .2em;
+		width: 18%;
+		padding: 3px;
+		font-size: 1.1em;
+		color: darken($brown, 10%);
+		@media screen and (min-width: $smallscreen) and (max-width: $mediumscreen){
+			margin: 0 1.5em;
+		}
+		@media screen and (max-width: $smallscreen){
+			margin: 0 .5em;
+			width: 25%;
+		}
+	}
+	button {
+		width: 15%;
+	  margin: 5px;
+	  @media screen and (max-width: $smallscreen){
+			width: 25%;
+		}
+	}
+}
+
+.butt-row {
+	width: 56%;
+	float: right;
+	padding: 10px 5px;
+	background-color: lighten($panelcolor, 10%);
+	@include border(1px, #fff);
+	@media screen and (max-width: $mediumscreen){
+		float: none;
+		width: auto;
+	}
+}
+
+.board {
+	box-sizing: content-box;
+	width: auto;
+	background-color: black;
+	margin: 8px auto;
+	color: #fff;
+	@include border(2px, lighten(#000, 50%));
+	@media screen and (max-width: $mediumscreen){
+		max-width: 95%;
+	}
+	tr {
+		height: 10px;
+	}
+	td {
+		width: 10px;
+		border: 1px solid #fff;
+	}
+}
+
+.live-cell {
+	background-color: $livegreen;
+}
+
+.dead-cell {
+	background: none;
+}
+
+.bottom-panel {
+	width: $panelwidth;
+	margin: 8px auto;
+	background-color: $panelcolor;
+	padding: 3px 0;
+	@include border(1px, #fff);
+	box-shadow: 5px 5px 5px #000;
+	@media screen and (min-width: $smallscreen - 1) and (max-width: $mediumscreen){
+		width: 85%;
+		margin-bottom: 20px;
+	}
+	@media screen and (max-width: $smallscreen){
+		width: 90%;
+		margin-bottom: 20px;
+	}
+}
+
+.bottom-row {
+	span.bott-title {
+		display: inline-block;
+		width: 22%;
+		margin: 0 10px;
+		@media screen and (min-width: $smallscreen) and (max-width: $mediumscreen){
+			width: 20%;
+			font-size: 0.9em;
+		}
+		@media screen and (max-width: $smallscreen){
+			width: 30%;
+			font-size: 0.8em;
+		}
+	}
+	button {
+		width: 23%;
+		font-size: 1em;
+		margin: 4px;
+		&.size-btn {
+			width: 17%;
+		}
+		&.xs-screen {
+			display: none;
+		}
+		@media screen and (max-width: $smallscreen){
+			width: 17%;
+			font-size: 0.67em;
+			&.lg-screen {
+				display: none;
+			}
+			&.xs-screen {
+				display: inline-block;
+			}	
+		}
+	}
+}
+
+#speed-val {
+	color: #fff;
+	font-weight: 600;
+	margin: 0 5px;
+	width: auto;
+}
