@@ -10,7 +10,7 @@
 
 The source code is in **App** folder.
 
-[Link to the game]().
+[Link to the game](https://hidden-meadow-91187.herokuapp.com/).
 
 More about "Game of Life" in [wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
